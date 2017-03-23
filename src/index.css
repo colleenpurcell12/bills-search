@@ -1,0 +1,543 @@
+
+/* App Style
+================================ */
+
+/*
+    #8ca3a3 light green
+    #778899; grey slate blue
+    #c6bcb6 lighter biege
+    #b9b0b0 darker biege
+    #bdcae3; light blue
+*/
+
+html, body, .main{ /* } .search-page{*/
+    /*height: 80%;*/
+    cursor: default;  
+}
+body{
+    font-family: 'Didot', serif; /*'Adobe Garamond Pro';*/
+    background-color: #e6f4f1; /* lighter, before very light green:#b9cece, before: a light blue #d3dcec;*/
+    color: #35486d;  /* to a darker blue, medium blue #435884;, from a soft purple: #564D80;*/
+    font-size: 16px;
+    /*background-image: url("../public/resources/graphics/background.png");
+    background-repeat: repeat;*/
+}
+h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+    font-weight: 400;
+}
+h3{
+    margin: 10px;
+}
+input{
+    border-radius: 8px;
+    border: 1px solid #564D80;
+    background-color: #f2f4f9;   /* color: blue;  github search purple #564D80 */
+    margin-bottom: 5px ;
+}
+input:focus, button:focus{
+    outline: none;
+}
+a {
+    color:  #35486d;
+    text-decoration: none;
+}
+
+/* Main App Style
+================================ */
+
+.main-app{
+    height: 100%;
+    margin: 1% 16% 3% 16%;
+}
+
+.main-header {
+    background-color:  #ffffff ;  /* #ffffff is a soft white, #778899 grey slate blue, before on GitHub Search: #034f84; */
+    overflow: hidden;
+    padding: 1.5em 0 1em 0;
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 1.1em;
+}
+.main-header h1 {
+    line-height: 1;
+    margin: 0;
+    font-weight: 400;
+    margin-left: 25px;
+    position: relative;
+}
+
+.congressIcon{
+    height: 1em;
+    width: 1em;
+    padding-right:10px;
+    /*padding-top:10px;*/
+    /*position: absolute;
+    top: 1px;
+    left: 5em;*/
+}
+/*.main-header img {
+    top: 5px;
+}*/
+
+.main-content {
+    padding: 0.5rem;
+}
+
+/* Search Bar Style
+================================ */
+ .search_container, .main-content{
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.37);
+}
+.search_container{
+    background-color: #778899; /* restaurant search dark teal #04759b ; */
+    width: 100%;
+    margin-top: 0; /*-.3em .1em;*/
+    /*z-index: 100;*/
+    box-sizing: border-box;
+    position: relative;
+}
+.search_description{
+    color: white;
+    padding: 1em 0 0 1em;
+    
+}
+.search_icon{
+    height: 1.4em;
+    width: 1.4em;
+    top: 3.4em;
+    left: 1.5em;
+    position: absolute;
+}
+.searchImage { 
+    width: 1.5em;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 2.5%;
+    font-size: 15px;
+    z-index: 100;
+    cursor: pointer;
+}
+.search_bar { 
+    text-indent: 30px; 
+    height: 1em;
+    margin: 1em 2.5%;
+    font-size: .9em;
+    padding: .6em 1em;
+    border-radius: 3px;
+    border: none;
+    background-color: #ffffff; 
+    color: #104966; 
+    width: 90%;
+}
+.search_bar::placeholder{
+    color: #dbdbdb;
+    font-weight: 100;
+}
+.search_bar::focus, {
+    outline: none;
+
+}
+
+/* Search Form Component Style
+================================ */
+
+.tabs{
+    position: relative;
+    height: 2.2em; 
+    margin-bottom: 0px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.tab_item{
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    padding: .5em;
+    margin-left: 10px;
+    /*margin-bottom: .6em;*/
+    background-color: #a1b2c4;
+    color: white;
+    width: 5em;
+}
+
+.selected{
+    background-color: #778899; 
+    /*height: 2.3em; 
+    z-index: 200;*/
+}
+
+/* Lower Containers (Sidebar and results) Style
+================================ */
+
+.main-content{ /* Parent Container/Wrapper */
+    position: relative;
+    height: 530px /*820px*/; 
+    overflow: auto;
+}
+.lower-content-area, .sidebar{
+    height: 100%;
+}
+.lower-content-area{ /* style shared by the sidebar and results */
+    background-color: #ffffff; /*soft white*/
+    display: block; 
+    padding: 15px 15px 0 1em;
+    overflow: auto;
+    box-sizing: border-box;
+}
+.sidebar, .results{ 
+    color: #35486d ; /* dark blue, formerly grey #7c7c7c ; */
+}
+.sidebar{
+    font-weight: 600;
+    font-size: 1.1em;    
+    border-right: thin solid #e6e6e6 ; 
+    width: 30%;
+    float: left;
+    box-sizing: border-box; 
+    padding-left: .5em;
+}
+.results{ 
+    width: 70%;
+    float: left;
+    padding-bottom: 15px;
+    border-bottom: none;
+}
+
+/* Bills Sidebar Container Style
+================================ */
+.billCategory{
+    padding: .4em 0;
+}
+
+.billTypesButton, .chamberButton{}
+.button{
+    font-family: 'Didot', serif; 
+    cursor: pointer;
+    display: inline-block;
+    margin: .2em .5em .2em .5em;
+    background-color:  #a1b2c4 ; /*lighter shade of the search container
+    8496a8 778899 formerly same as search container, formerly #97add8 lighter sky blue, prior #5b6e93, medium drak blue #8882a6, from a purple: #564D80;*/
+    color: white;
+    box-shadow: 0px 0px 5px -1px #e6f4f1; /* to the background color of the body,  from a grey #969696;*/
+    border: none;
+    border-radius: 4px;
+    padding: .3em .7em; 
+    font-weight: 200;
+    font-size: .9em;
+} 
+.chamberButton{
+
+}
+
+/* One Bill Main Content Container Style
+================================ */
+ .oneBill_info{
+    padding-bottom: 10px;
+ }
+
+/* Legislator Page Style
+================================ */
+ .your_representatives{
+    color: white;
+    padding-bottom: .5em;
+ }
+ .your_representatives_title{
+    font-size: 1.2em;
+ }
+ .legislator_item{
+    padding-right: 5px;
+ }
+
+/* Restaurant Results Style
+================================ */
+
+.items_list{
+    list-style: none;
+    margin-left: 0;
+}
+.items_item{
+    display: block;
+    clear: both;  
+    margin-bottom: 1em;
+}
+.items_item::after{ 
+    content: '';
+    visibility: hidden;
+    height: 0;
+    clear:both;
+    display: block;
+}
+
+.bold{
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #263654;
+    padding-right: 10px;
+}
+.light{
+    font-weight: 200;
+    font-size: 1em;
+    color: #3c5a93  ; /*314772 normal, very light 5e80c1*/
+}
+.normal{
+    font-weight: 100;
+    font-size: 1em;
+    color: #314772  ; /*314772 normal, very light 5e80c1*/
+}
+.link{
+    cursor: pointer;
+    color: #3c5a93;
+}
+#govtrack_link{
+    text-decoration-style: underline;
+    cursor: pointer;
+    color: #3c5a93;
+}
+.items_name{
+    font-weight: 600;
+    color: #263654;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+.items_show_more{
+    cursor: pointer;
+    display: inline-block;
+    margin: .9em 0 0 25%;
+    color: #969696;
+    font-weight: 100;
+    font-size: .9em;
+    box-shadow: 0px 0px 5px -1px #969696;
+    border: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: white;
+    /*box-shadow: none;*/
+    background-color: white;
+    padding: .5em 3em;
+}
+
+
+/* Media Queries
+================================ */
+
+@media (min-width: 1px) and (max-width: 450px)  {
+    .user-repos, .followers-usernames {
+        margin-left: 0;
+    }   
+    .search-page__input{
+        display: block;
+        margin: 10px auto;
+    }
+}
+
+
+/* Media Queries
+================================ */ 
+
+
+@media (min-width: 1px) and (max-width: 1300px)  {
+    .main-app{
+        margin: 4% 14% 4% 14%;
+    }
+
+    .search-bar {  
+        padding-right: 3.5em;
+    }
+    .sidebar_cuisine, .sidebar_ratings, .sidebar_payment{
+        margin-left: 12%;
+    }
+
+}
+@media (min-width: 1px) and (max-width: 1200px)  {
+    .results_line{
+        font-size: .6em
+    }
+    .main-app{
+        margin: 4% 12% 4% 12%;
+    }.main-content{ /* Parent Container/Wrapper */
+        height: 550px /*820px*/; 
+    }
+    .search-bar {  
+        padding-right: 2.85em;
+    }
+    .sidebar_cuisine, .sidebar_ratings, .sidebar_payment{
+        margin-left: 10%;
+    }
+}
+@media (min-width: 1px) and (max-width: 1100px)  {
+    body {
+        font-size: 17px;
+    }
+    .main-app{
+        margin: 5% 9% 3% 9%;
+    }
+    
+    .search-bar {  
+        padding-right: 2.5em;
+    }
+    .results-list{
+        margin-left: 7%;
+        margin-right: 2%;
+    }
+    .restaurant_image{
+        width: 4.2em;
+    }
+    .sidebar_cuisine, .sidebar_ratings, .sidebar_payment{
+        margin-left: 6%;
+    }
+    .cuisine_type{
+        padding-right: 2em;
+    }
+} 
+
+@media (min-width: 1px) and (max-width: 1000px)  {
+    body {
+        font-size: 16px;
+    }
+    .main-app{
+        margin: 6% 7% 3% 7%;
+    }
+    .search-bar {  
+        padding-right: 2.25em;
+    }
+    .cuisine_table, .ratings, .payment_list{
+        margin-left: 4%;
+    }
+    .results_line{
+        font-size: .5em;
+        font-weight: 200;
+    }
+    .restaurant_image{
+        width: 4.1em;
+    }
+    .cuisine_type{
+        padding-right: 1.5em;
+    }
+}
+
+@media (min-width: 1px) and (max-width: 825px)  {
+    body {
+        font-size: 15px;
+    }
+    .main-app{
+        margin: 6% 6% 3% 6%;
+    }
+    .cuisine_type{
+        padding-right: 1.1em;
+    }
+    .results_line{
+        font-size: .4em;
+    }
+    .restaurant_image{
+        width: 4em;
+    }
+    .restaurant_list{
+        margin-left: 2em;
+    }
+}
+
+@media (min-width: 1px) and (max-width: 750px)  {
+    body {
+        font-size: 14px;
+    }
+    .main-app{
+        margin: 6% 5% 3% 5%;
+    }
+    .main-content{ /* Parent Container/Wrapper */
+        height: 575px /*820px*/; 
+    }
+
+    .sidebar_cuisine, .sidebar_ratings{
+        padding-left: .5em;
+    }
+    .cuisine_table, .ratings, .payment_item{
+        margin-left: 6%;
+    }
+    .cuisine_type{
+        padding-right: .9em;
+    }
+    .results_line{
+        font-size: .3em
+    }
+    .restaurant_image{
+        width: 3.9em;
+    }
+    .restaurant_image{
+        margin-right: 1em;
+    }    
+    .sidebar{ 
+        padding-left: .2em;
+    }
+
+} 
+@media (min-width: 1px) and (max-width: 675px)  {
+    body {
+        font-size: 13px;
+    }
+    }
+@media (min-width: 1px) and (max-width: 650px)  {
+    body {
+        font-size: 12px;
+    }
+    .main-app{
+        margin: 6% 4% 3% 4%;
+    }
+    .main-content{ /* Parent Container/Wrapper */
+        height: 600px /*820px*/; 
+    }
+    .cuisine_table, .ratings, .payment_item{
+        margin-left: 5%;
+    }
+    .cuisine_type{
+        padding-right: .5em;
+    }
+    .results_line{
+        font-size: .3em
+    }
+    .restaurant_image{
+        width: 3.8em;
+    }
+    .restaurants_show_more{
+        margin-top: 2em;
+        margin-left: 5.4em;
+    }
+}
+@media (min-width: 1px) and (max-width: 575px)  {
+    body {
+        font-size: 11px;
+    }
+}
+@media (min-width: 1px) and (max-width: 500px)  {
+    body {
+        font-size: 11px;
+    }
+    .search_bar {  
+        font-size: .85em;
+    }
+    .sidebar{
+        width: 1%;
+        border: none;        /*float: left;*/
+    }
+    .results{ 
+        width: 98.75%;
+    }
+    .restaurant_list{
+        margin-left: 1.5em;
+    }
+    .restaurant_image{
+        width: 3.7em;
+    }
+    .restaurants_show_more{
+        margin-left: 5.3em;
+    }
+    .search_bar {  
+        width: 87%;
+    }
+    .main-content{ 
+        height: 600px
+    }
+}
+
