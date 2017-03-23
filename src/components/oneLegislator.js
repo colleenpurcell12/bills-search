@@ -1,69 +1,33 @@
-// https://api.propublica.org/congress/v1/members/{member-id}/votes.json
-
 import React from 'react';
-import { Link } from 'react-router'; // browserHistory,
+import { Link } from 'react-router';
 import key from '../../ProPublicaAPIkey.json' 
 
 class oneLegislator extends React.Component {
     constructor() {
         super();
-        this.state = { theMember: {}, votes: [], legislatorLastName: "Legislator" }; //members: [], 
+        this.state = { theMember: {}, votes: [], legislatorLastName: "Legislator" };
     }
     componentDidMount() {
     	let { legislatorLastName, chamber} = this.props.params
         this.setState({ legislatorLastName})
-        // ProPublica
-        console.log("this.props.params.legislatorlast:",legislatorLastName)
-        console.log("chamber", chamber)
-		
 		fetch(`https://api.propublica.org/congress/v1/115/${chamber}/members.json`,
             {method:'GET', headers: {'X-API-Key': key[0].secret} })
         .then(response => response.json())
         .then( info =>  { 
-        	console.log(" received members like ", info.results[0].members[0])
-        	//console.log(info.results[0].members)
-            // this.setState({ members: info.results[0].members }); 
-
             let members = info.results[0].members
 	        let theMember = members.filter( function(item){
-	        	// console.log("item.last_name",item.last_name,"legislatorName",legislatorName)
 	        	return item.last_name===legislatorLastName
 	        } )
-	        console.log("theMember",theMember[0])
             this.setState({ theMember: theMember[0] }); 
-	        // console.log("theMember id",theMember[0].id)
-
-
-	        fetch(`https://api.propublica.org/congress/v1/members/${theMember[0].id}/votes.json`,
-	            {method:'GET', headers: {'X-API-Key': key[0].secret}
-	            })
+	        fetch(`https://api.propublica.org/congress/v1/members/${theMember[0].id}/votes.json`, {method:'GET', headers: {'X-API-Key': key[0].secret} })
 	        .then(response => response.json())
-	        .then( info =>  { 
-				console.log("theMember's votes",info)
-	            this.setState({ votes: info.results[0].votes }); 
-	        });
+	        .then( info =>  {  this.setState({ votes: info.results[0].votes }); });
         });
-        
-
- 
-        // sample congressman
-        // fetch("https://api.propublica.org/congress/v1/members/A000055.json",
-
     }
    
-
-
     render() {
-        // let {  searchTerm, members, chamber, userResp, userSenator1, userSenator2 } = this.state; //bills, billTypeSelected, chamber,, otherType1, otherType2 
         let {  theMember, votes, legislatorLastName } = this.state;  //searchTerm, 
         votes = votes.filter( vote => vote.bill.number)
-         // members = members.map((memb, ind)=> [{state: memb.state, first_name: memb.first_name, 
-         //                                    last_name: memb.last_name, party: memb.party //, district: memb.district
-         //                                }])
-        // console.log(members[0])
-        // if (!members) {
-        //     return ( <div className="user-page">LOADING members...</div> );
-        // }
 
         return (
             <div className="search-page">
@@ -71,14 +35,27 @@ class oneLegislator extends React.Component {
                 <div className="tabs">
                     <Link  to="/" className="tab_item">Bills</Link>
                     <Link  to="/Legislators" className="tab_item">Legislators</Link>
-                    <Link  to="/Votes" className="tab_item">Votes</Link>
                 </div>
 
                 <div className="search_container">
                     <div className="search_description">
                     </div>     
                 </div>
-
+                {
+                    (!theMember.first_name)?
+                        <div className="main-content">
+                            <div className="sidebar lower-content-area">
+                                <div className="chamberButton">
+                                    <div className="billCategory">
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="results lower-content-area">
+                                LOADING VOTES...
+                            </div>
+                        </div>
+                    :
+                
                 <div className="main-content">
                     <div className="sidebar lower-content-area">
                         <div className="chamberButton">
@@ -86,7 +63,7 @@ class oneLegislator extends React.Component {
                                 <div> Next up for election </div>
                                 <div> in {theMember.next_election} </div>
                                 <div>
-                                    <a src={theMember.url} alt="website" className="link">Website</a>
+                                    <Link href={theMember.url} target="_blank" className="link">Website</Link>
                                 </div>
                             </div>
                             
@@ -126,6 +103,8 @@ class oneLegislator extends React.Component {
                     </div>
                         
                     </div>
+                
+                }
                 </div>
         );
     }

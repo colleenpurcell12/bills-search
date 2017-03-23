@@ -39,7 +39,6 @@ class oneBill extends React.Component {
                 <div className="tabs">
                     <Link  to="/" className="tab_item">Bills</Link>
                     <Link  to="/Legislators" className="tab_item">Legislators</Link>
-                    <Link  to="/Votes" className="tab_item">Votes</Link>
                 </div>
 
                 <div className="search_container">
@@ -48,7 +47,7 @@ class oneBill extends React.Component {
 
                 <div className="main-content">
                     <div className="sidebar lower-content-area">
-                        <div>Sidebar </div>
+                        <div> </div>
                         
                     </div>
                     <div className="results lower-content-area">
@@ -100,8 +99,7 @@ class oneBill extends React.Component {
                             <span className="bold">
                                 Find out more about the bill and take action at:
                             </span>
-                            <a src={bill.govtrack_url} alt="govtrack link" id="govtrack_link">govtrack.com</a>
-                            
+                            <Link href={bill.govtrack_url}  target="_blank" id="govtrack_link">govtrack.com</Link>  
                         </div>                   
                     </div>
                 </div>

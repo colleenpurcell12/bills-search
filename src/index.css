@@ -214,6 +214,7 @@ a {
 
 .billTypesButton, .chamberButton{}
 .button{
+    font-size: .9em;
     font-family: 'Didot', serif; 
     cursor: pointer;
     display: inline-block;
@@ -249,6 +250,7 @@ a {
  }
  .legislator_item{
     padding-right: 5px;
+    cursor: pointer;
  }
 
 /* Restaurant Results Style
@@ -300,8 +302,8 @@ a {
     font-weight: 600;
     color: #263654;
     font-size: 1.1em;
-    cursor: pointer;
-}
+/*    cursor: pointer;
+*/}
 .items_show_more{
     cursor: pointer;
     display: inline-block;

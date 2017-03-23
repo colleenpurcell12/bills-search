@@ -1,3 +1,6 @@
+// import Votes from './components/Votes';
+//             <Route path="/Votes" component={Votes}/>
+
 import React from 'react';
 import { Link } from 'react-router'; //import key from '../../APIkey.json' 
 import key from '../../ProPublicaAPIkey.json' 
@@ -17,17 +20,18 @@ class Votes extends React.Component {
             })
         .then(response => response.json())
         .then( info =>  { 
+            console.log("***** info.results.votes",info.results.votes)
             this.setState({ voteObj: info.results.votes.vote }); 
         });
 
 
 
-        fetch("https://api.propublica.org/congress/v1/115/senate/sessions/1/votes/17.json",
-            {method:'GET', headers: {'X-API-Key': key[0].secret}
-            })
-        .then(response => response.json())
-        .then( info =>  { 
-            // console.log("******* this is the propublica response", info.results.votes.vote)
+        // fetch("https://api.propublica.org/congress/v1/115/senate/sessions/1/votes/17.json",
+        //     {method:'GET', headers: {'X-API-Key': key[0].secret}
+        //     })
+        // .then(response => response.json())
+        // .then( info =>  { 
+        //     // console.log("******* this is the propublica response", info.results.votes.vote)
             // console.log("******* this is the vote obj keys", Object.keys(info.results.votes.vote))
 
 
@@ -40,7 +44,7 @@ class Votes extends React.Component {
             // console.log("***** voteObj.democratic",voteObj.democratic)
             // console.log("***** voteObj.republican",voteObj.republican)
             // console.log("***** voteObj.republican.majority_position",voteObj.republican.majority_position)
-        });
+        // });
     }
 
                     // <div>{voteObj.description}</div>
@@ -64,7 +68,6 @@ class Votes extends React.Component {
                 <div className="tabs">
                     <Link  to="/" className="tab_item">Bills</Link>
                     <Link  to="/Legislators" className="tab_item">Legislators</Link>
-                    <Link  to="/Votes" className="tab_item selected">Votes</Link>
                 </div>
 
                 <div className="search_container">
