@@ -10,8 +10,7 @@ node_modules
 /build
 
 # misc
-ProPublicaAPIkey.json
-GoogleAPIkey.json
+
 .DS_Store
 .env
 npm-debug.log*
